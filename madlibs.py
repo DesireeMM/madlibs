@@ -1,6 +1,6 @@
 """A madlib game that compliments its users."""
 
-from random import choice
+from random import choice, sample
 
 from flask import Flask, render_template, request
 
@@ -46,9 +46,9 @@ def greet_person():
 
     player = request.args.get("person")
 
-    compliment = choice(AWESOMENESS)
+    compliments = sample(AWESOMENESS,3)
 
-    return render_template("compliment.html", person=player, compliment=compliment)
+    return render_template("compliment.html", person=player, compliments=compliments)
 
 @app.route("/game")
 def show_madlib_form():
@@ -71,9 +71,14 @@ def show_madlib():
     noun = request.args.get("noun")
     adj = request.args.get("adjective")
     loc = request.args.get("place")
-    celebrity = request.args.get("celebrity")
+    celebrities = request.args.getlist("celebrities")
 
-    return render_template("madlib.html", color=color, noun=noun, adj=adj, place=loc, celebrity=celebrity)
+    random_file = choice(["madlib.html", "madlib2.html", "madlib3.html"])
+
+# getlist - turns all options into a list... in html file (madlib)
+    # for celeb in celebrity; celeb1 = this; increment to get celeb2 (do in jinji2 however)
+
+    return render_template(random_file, color=color, noun=noun, adj=adj, place=loc, celebrities=celebrities)
 
 if __name__ == "__main__":
     # Setting debug=True gives us error messages in the browser and also

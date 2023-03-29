@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Madlib v2</title>
+    </head>
+    <body>
+        I went to {{place}} with <span>{% for celeb in celebrities %}
+            {% if celeb != celebrities[-1] %}
+           {{celeb}} and {% else %} {{celeb}}{% endif %}{% endfor %}</span>. 
+        <br><br>I couldn't believe when {{celebrities[0]}} showed up in {{color}}!
+        <br><br>That was {{adj}}. I had to cope by buying a {{noun}}.
+        
+    </body>
+</html>

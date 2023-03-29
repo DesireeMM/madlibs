@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Madlib</title>
+    </head>
+    <body> 
+        One time in {{ place }}, I saw a group of celebrities: <span>{% for celeb in celebrities %}
+            {% if celeb != celebrities[-1] %}
+           {{celeb}} and {% else %} {{celeb}}{% endif %}{% endfor %}</span>, worshipping a {{adj}} {{noun}}.<br><br> The sky was {{color}} that day.
+    </body>
+</html>
+<!-- place, celebrities, color,adj,noun -->

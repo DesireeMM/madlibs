@@ -5,6 +5,8 @@
     </head>
     <body>
         Developers that live in {{place}} only want one thing. And it's a {{color}} {{adj}} {{noun}}. <br><br>
-        Oh, and to dine with {% for celeb in celebrity %} {{celeb}}, {% endfor %}
+        Oh, and to dine with <span>{% for celeb in celebrities %}
+             {% if celeb != celebrities[-1] %}
+            {{celeb}} and {% else %} {{celeb}}{% endif %}{% endfor %}</span>.
     </body>
 </html>
